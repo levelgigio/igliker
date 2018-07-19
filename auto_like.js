@@ -2,7 +2,7 @@
 var quant_likes_antes_pausa = 1; // quantos likes vai dar antes de entrar em uma pausa
 var tempo_pausa = 10; // duracao da pausa em segundos
 var tempo_entre_funcoes = 3.333; // tempo em segundos entre cada acao de abrir, curtir/seguir e fechar
-var seguir_perfis = true;
+var seguir_perfis = false;
 var curtir_publicacoes = true;
 var seguir_ilimitado = false;
 var curtir_ilimitado = true;
@@ -40,7 +40,6 @@ function curtirFoto() {
 
 function fecharFoto() { 
     document.getElementsByTagName("button")[document.getElementsByTagName("button").length-1].click(); 
-    
     coluna = (coluna + 1)%3;
     if(!coluna)
         linha = (linha + 1)%10; // quantas linhas desce antes de recomecar (por causa da forma que o instagram gerencia quantos blocos div de linha de fotos vao ser contidos na page HTML [chunks de imagem])
