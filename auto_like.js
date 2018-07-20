@@ -9,7 +9,7 @@ var curtir_ilimitado = true;
 var max_seguir = 15;
 var max_curtidas = 300;
 var curtir_explore = false;
-var curtir_hastags = true;
+var curtir_hashtags = true;
 
 // VARIAVEIS DE SISTEMA
 var linha = 0; // linhas
@@ -27,7 +27,7 @@ var data_inicio_simplificada = data_completa_inicio.getHours() + ":" + data_comp
 console.log("Iniciando...");
 console.log("Horario de inicio: " + data_inicio_simplificada);
 
-if(curtir_hastags && !curtir_explore)
+if(curtir_hashtags && !curtir_explore)
     iniciar();
 else
     console.log("Escolha OU curtir na aba de hashtags OU na aba explore")
@@ -35,7 +35,7 @@ else
 function abrirFoto() { 
     if(curtir_explore)
         document.getElementsByTagName("article")[0].childNodes[0].childNodes[0].childNodes[linha].childNodes[coluna].childNodes[0].click()  //EXPLORE
-    if(curtir_hastags)
+    if(curtir_hashtags)
         document.getElementsByTagName("article")[0].childNodes[3].childNodes[0].childNodes[linha].childNodes[coluna].childNodes[0].childNodes[0].click() //HASHTAGS
 }
 
