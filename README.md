@@ -27,14 +27,20 @@ a variavel "max_curtidas" so e pertinente caso a variavel "curtir_ilimitado" est
 #CONFIGURACOES DEFAULT
 - O Instagram possui um sistema "anti bot" que detecta atividade sobre humana de curtidas/seguidas. Aparentemente o sistema esta configurado para dar block na conta caso curta mais que 350 publicacoes por hora e/ou siga mais que 30 perfis por hora. 
 
+----------
 A configuracao abaixo e a versao que nao se preocupa com isso, curte adoidado.
 
 var quant_likes_antes_pausa = 80; 
+
 var tempo_pausa = 45; 
+
 var tempo_entre_funcoes = 0.8; 
 
+----------
 A configuracao abaixo e a versao que se preocupa com isso, curtindo em media 180 publicacoes por hora.
 
 var quant_likes_antes_pausa = 1; 
+
 var tempo_pausa = 10; 
+
 var tempo_entre_funcoes = 3.333; 
