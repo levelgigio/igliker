@@ -4,10 +4,12 @@ var tempo_pausa = 10; // duracao da pausa em segundos
 var tempo_entre_funcoes = 3.333; // tempo em segundos entre cada acao de abrir, curtir/seguir e fechar
 var seguir_perfis = false;
 var curtir_publicacoes = true;
-var seguir_ilimitado = false;
+var seguir_ilimitado = true;
 var curtir_ilimitado = true;
 var max_seguir = 15;
 var max_curtidas = 300;
+var curtir_explore = false;
+var curtir_hastags = true;
 
 // VARIAVEIS DE SISTEMA
 var linha = 0; // linhas
@@ -24,11 +26,17 @@ var data_inicio_simplificada = data_completa_inicio.getHours() + ":" + data_comp
 
 console.log("Iniciando...");
 console.log("Horario de inicio: " + data_inicio_simplificada);
-iniciar();
+
+if(curtir_hastags && !curtir_explore)
+    iniciar();
+else
+    console.log("Escolha OU curtir na aba de hashtags OU na aba explore")
 
 function abrirFoto() { 
-    //document.getElementsByTagName("article")[0].childNodes[0].childNodes[0].childNodes[linha].childNodes[coluna].childNodes[0].click()  //EXPLORE
-    document.getElementsByTagName("article")[0].childNodes[3].childNodes[0].childNodes[linha].childNodes[coluna].childNodes[0].childNodes[0].click() //HASHTAGS
+    if(curtir_explore)
+        document.getElementsByTagName("article")[0].childNodes[0].childNodes[0].childNodes[linha].childNodes[coluna].childNodes[0].click()  //EXPLORE
+    if(curtir_hastags)
+        document.getElementsByTagName("article")[0].childNodes[3].childNodes[0].childNodes[linha].childNodes[coluna].childNodes[0].childNodes[0].click() //HASHTAGS
 }
 
 function curtirFoto() { 
