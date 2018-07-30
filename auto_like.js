@@ -14,7 +14,6 @@ var curtir_hashtags = true;
 // VARIAVEIS DE SISTEMA
 var linha = 0; // linhas
 var coluna = 0; // colunas
-var scrolls = 0; // quantidade de scrolls
 var funcao_atual = 0; // variavel pra alternar entre as funcoes abrir, curtir e fechar
 var curtidas = 0;
 var seguindo = 0;
@@ -40,7 +39,7 @@ function abrirFoto() {
 }
 
 function curtirFoto() { 
-    if(document.getElementsByClassName("coreSpriteHeartOpen")[0].childNodes[0].innerText === "Curtir" && curtir_publicacoes && (curtidas < max_curtidas || curtir_ilimitado)) {
+    if(document.getElementsByClassName("coreSpriteHeartOpen")[0].childNodes[0].getAttribute("aria-label") === "Curtir" && curtir_publicacoes && (curtidas < max_curtidas || curtir_ilimitado)) {
         document.getElementsByClassName("coreSpriteHeartOpen")[0].click(); 
         console.log( "Curtidas: " +  (++curtidas));
     }
@@ -50,13 +49,12 @@ function fecharFoto() {
     document.getElementsByTagName("button")[document.getElementsByTagName("button").length-1].click(); 
     coluna = (coluna + 1)%3;
     if(!coluna)
-        linha = (linha + 1)%10; // quantas linhas desce antes de recomecar (por causa da forma que o instagram gerencia quantos blocos div de linha de fotos vao ser contidos na page HTML [chunks de imagem])
+        linha = (linha + 1)%15; // quantas linhas desce antes de recomecar (por causa da forma que o instagram gerencia quantos blocos div de linha de fotos vao ser contidos na page HTML [chunks de imagem])
 }
 
 function rolarPagina() {
-    if(!((linha+1)%2) && !coluna) { // 2 linhas antes de rolar pra carregar mais
-        scrolls++;
-        window.scrollTo(0, 3500*scrolls);
+    if(!((linha+1)%1) && !coluna) { // 2 linhas antes de rolar pra carregar mais
+        window.scrollTo(0, document.body.scrollHeight);
     }   
 }
 
